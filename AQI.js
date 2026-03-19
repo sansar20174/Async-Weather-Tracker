@@ -27,7 +27,7 @@ async function searchWeather(city){
                 <p>Temp: ${(weatherData.main.temp - 273.15).toFixed(1)} °C</p>
                 <p>Weather: ${weatherData.weather[0].main}</p>
                 <p>Humidity: ${weatherData.main.humidity}</p>
-                <p>Wind: ${weatherData.wind.speed * 3.6} km/hr</p>`;
+                <p>Wind: ${weatherData.wind.speed} miles/hr</p>`;
                 if(!visitedCities.includes(city)){
                     visitedCities.push(city);
                     localStorage.setItem("visitedCities", JSON.stringify(visitedCities));
