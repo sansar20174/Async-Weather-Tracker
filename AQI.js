@@ -2,7 +2,7 @@ const API_KEY = "ca2fb287aff257a252c222ee96b556a6";
 
 const city = document.querySelector("#city");
 const search = document.querySelector("#weatherForm");
-const history=document.querySelector(".SearchHistory");
+const history=document.querySelector("#SearchCities");
 const Container = document.querySelector(".info");
 let visitedCities =[];
 
@@ -27,7 +27,7 @@ async function searchWeather(city){
                 <p>Temp: ${(weatherData.main.temp - 273.15).toFixed(1)} °C</p>
                 <p>Weather: ${weatherData.weather[0].main}</p>
                 <p>Humidity: ${weatherData.main.humidity}</p>
-                <p>Wind: ${weatherData.wind.speed} miles/hr</p>`;
+                <p>Wind: ${weatherData.wind.speed * 3.6} km/hr</p>`;
                 if(!visitedCities.includes(city)){
                     visitedCities.push(city);
                     localStorage.setItem("visitedCities", JSON.stringify(visitedCities));
@@ -43,8 +43,6 @@ async function searchWeather(city){
             }
         }
     }
-
-  
 
 function showHistory(){
     history.innerHTML="";
