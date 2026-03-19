@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asycn Weather Tracker</title>
+    <title>Async Weather Tracker</title>
     <link rel="stylesheet" href="Humidity.css">
     <script src="AQI.js" defer></script>
 </head>
 <body>
-    <h1>Asyn Weather Tracker</h1>
-    <div class="weather_form">
-       <form id="weatherForm">
-            <label for="city">Enter City Name:</label>
-            <input type="text" id="city" name="city" required>
-            <input type="submit" id="search" value="Search">
-        </form>
-        <h3 id="visitedCitiesHeader">Search Cities:</h3>
-        <div id="SearchCities"></div>
+    <h1>Async Weather Tracker</h1>
+    <div class="weather-layout">
+        <div class="weather_form">
+           <form id="weatherForm">
+                <label for="city">Enter City Name:</label>
+                <input type="text" id="city" name="city" placeholder="e.g. Delhi" required>
+                <input type="submit" id="search" value="Search">
+            </form>
+            <h3 id="visitedCitiesHeader">Search Cities:</h3>
+            <div id="SearchCities"></div>
+        </div>
+        <div class="info" aria-live="polite"></div>
     </div>
-    <div class="info"></div>
     <div class="event_state"></div>
     <div id="container"></div>
+
+    <div class="card">
+            <h2>Console - Event Loop</h2>
+            <div class="console-window">
+                <ul id="consoleLog">
+                </ul>
+            </div>
+    </div>
 </body>
 </html>

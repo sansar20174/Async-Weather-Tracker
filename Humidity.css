@@ -13,14 +13,41 @@ body{
     flex-direction:column;
     align-items:center;
     justify-content:flex-start;
-    padding:40px;
+    padding:40px 16px;
 }
 
 /* Main heading */
 h1{
-    color:white;
+    position:relative;
     margin-bottom:30px;
-    letter-spacing:1px;
+    font-size:clamp(28px,5vw,44px);
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:transparent;
+    background:linear-gradient(90deg,#ffffff 0%,#e6f7ff 40%,#bde0ff 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    text-shadow:0 6px 18px rgba(0,0,0,0.28);
+}
+
+h1::after{
+    content:"";
+    display:block;
+    width:120px;
+    height:4px;
+    margin:10px auto 0;
+    border-radius:99px;
+    background:linear-gradient(90deg,#ffffff,#dff6ff);
+    box-shadow:0 4px 12px rgba(0,0,0,0.25);
+}
+
+.weather-layout{
+    width:min(100%,900px);
+    display:flex;
+    gap:20px;
+    align-items:stretch;
+    justify-content:center;
 }
 
 /* Weather form card */
@@ -29,7 +56,9 @@ h1{
     padding:25px;
     border-radius:12px;
     box-shadow:0 8px 20px rgba(0,0,0,0.2);
-    width:320px;
+    width:100%;
+    flex:1 1 320px;
+    max-width:420px;
 }
 
 /* Label styling */
@@ -95,10 +124,12 @@ h1{
 
 /* Weather info display */
 .info{
-    margin-top:25px;
     background:white;
     padding:20px;
-    width:320px;
+    width:100%;
+    flex:1 1 320px;
+    max-width:420px;
+    min-height:72px;
     border-radius:12px;
     box-shadow:0 8px 20px rgba(0,0,0,0.2);
 }
@@ -117,4 +148,73 @@ h1{
 /* Container placeholder */
 #container{
     margin-top:20px;
+}
+
+/* Console card */
+.card{
+    margin-top:24px;
+    width:min(100%,900px);
+    background:white;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    padding:18px;
+}
+
+.card h2{
+    font-size:18px;
+    margin-bottom:10px;
+    color:#1d3557;
+}
+
+.console-window{
+    background:#101820;
+    border-radius:8px;
+    min-height:120px;
+    max-height:240px;
+    overflow:auto;
+    padding:12px;
+}
+
+#consoleLog{
+    list-style:none;
+    color:#e8f1f2;
+    font-size:14px;
+    line-height:1.4;
+}
+
+#consoleLog li{
+    padding:3px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+#consoleLog li:last-child{
+    border-bottom:none;
+}
+
+@media (max-width:480px){
+    .weather-layout{
+        flex-direction:column;
+    }
+
+    h1{
+        font-size:24px;
+        text-align:center;
+    }
+
+    .weather-layout,
+    .weather_form,
+    .info,
+    .card{
+        width:100%;
+        max-width:none;
+    }
+}
+/* Day theme */
+body.day{
+    background: linear-gradient(120deg,#4facfe,#00f2fe);
+}
+
+/* Night theme */
+body.night{
+    background: linear-gradient(120deg,#141e30,#243b55);
 }
